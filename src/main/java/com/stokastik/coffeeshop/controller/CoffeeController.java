@@ -29,23 +29,22 @@ public class CoffeeController {
 
     @GetMapping
     public ResponseEntity<List<Coffee>> getAllCoffees() {
-        List<Coffee> coffees = coffeeService.getAllCoffees();
-        return new ResponseEntity<>(coffees, HttpStatus.OK);
+        return new ResponseEntity<>(coffeeService.getAllCoffees(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Coffee> getCoffeeById(@PathVariable String id) {
+    public ResponseEntity<Coffee> getCoffeeById(@PathVariable Integer id) {
         return new ResponseEntity<>(coffeeService.getCoffeeById(id), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<String> addCoffee(@Valid @RequestBody Coffee newCoffee) {
-        coffeeService.addCoffee(newCoffee);
-        return new ResponseEntity<>("Coffee Added Successfully", HttpStatus.CREATED);
+    public ResponseEntity<HashMap<String, String>> addCoffee(@Valid @RequestBody Coffee newCoffee) {
+        HashMap<String, String> responseStatus = coffeeService.addCoffee(newCoffee);
+        return new ResponseEntity<>(responseStatus, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<HashMap<String, String>> deleteCoffee(@PathVariable String id) {
+    public ResponseEntity<HashMap<String, String>> deleteCoffee(@PathVariable Integer id) {
         return new ResponseEntity<>(coffeeService.deleteMenuById(id), HttpStatus.OK);
     }
 }

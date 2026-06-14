@@ -1,14 +1,20 @@
 package com.stokastik.coffeeshop.model;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
+@Entity
 public class Coffee {
 
-    @NotBlank(message = "ID cannot be blank")
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @NotBlank(message = "Name should not be null or empty")
     private String name;
@@ -17,17 +23,19 @@ public class Coffee {
     @Positive(message = "Price should not be negative value")
     private Double price;
     
-    public Coffee(String id, String name, Double price) {
+    public Coffee() {
+    }
+    public Coffee(Integer id, String name, Double price) {
         this.id = id;
         this.name = name;
         this.price = price;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
