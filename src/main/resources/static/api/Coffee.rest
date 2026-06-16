@@ -1,0 +1,68 @@
+# GET ALL
+###
+GET http://127.0.0.1:8080/api/coffees HTTP/1.1
+
+# GET BY ID
+###
+GET http://127.0.0.1:8080/api/coffees/2 HTTP/1.1
+
+# POST
+###
+POST http://127.0.0.1:8080/api/coffees HTTP/1.1
+Content-Type: Application/json
+
+{
+    "name": "Gayo Kampung",
+    "bean": "Robusta",
+    "price": 15000.0
+}
+
+###
+POST http://127.0.0.1:8080/api/coffees HTTP/1.1
+Content-Type: Application/json
+
+{
+    "name": "Bali Kintami",
+    "bean": "Arabica",
+    "price": 35000.0
+}
+
+###
+POST http://127.0.0.1:8080/api/coffees HTTP/1.1
+Content-Type: Application/json
+
+{
+    "name": "Excelsa Pours",
+    "bean": "Robusta",
+    "price": 35000.0
+}
+
+
+###
+POST http://127.0.0.1:8080/api/coffees HTTP/1.1
+Content-Type: Application/json
+
+{
+    "name": "Liberica Brazil",
+    "bean": "Liberica",
+    "price": 35000.0
+}
+
+# UPDATE BY ID
+###
+PUT http://127.0.0.1:8080/api/coffees/1 HTTP/1.1
+Content-Type: Application/json
+
+{
+    "name": "Arabica Gayo",
+    "bean": "Arabica",
+    "price": 25000.0
+}
+
+# GET BY BEAN
+###
+GET http://127.0.0.1:8080/api/coffees/bean?bean=Arabica HTTP/1.1
+
+# DELETE BY ID
+###
+DELETE http://127.0.0.1:8080/api/coffees/1 HTTP/1.1

@@ -26,6 +26,6 @@ public class GlobalExceptionHandler {
         errors.put("error", "Resource not found");
         errors.put("message", ex.getMessage());
 
-        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(errors, HttpStatus.NOT_FOUND);
     }
 }
